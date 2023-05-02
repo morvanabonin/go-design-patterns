@@ -1,35 +1,37 @@
 package singleton
 
-import "testing"
+import (
+	"testing"
+)
 
 func Test_GetInstance(t *testing.T) {
-	testes := []struct {
+	tests := []struct {
 		name  string
-		init func(t *testing.T) Singleton
-		inspect func(t *testing.T)
+		init func(t *testing.T) *singleton
+		inspect func(r *singleton, t *testing.T)
 	}{
 		{
 			name: "GetInstance() not nill",
-			init: func(t *testing.T) Singleton {
+			init: func(t *testing.T) *singleton {
 				return GetInstance()
 			},
-			inspect: func(r Singleton, , t *testing.T) {
+			inspect: func(r *singleton, t *testing.T) {
 				if r == nil {
-					t.Error("expected pointer to Singleton after calling GetInstance(), not nill")
+					t.Errorf("expected pointer to Singleton after calling GetInstance(), not nill")
 				}
-			}
+			},
 		},
 		{
 			name: "First time count must be 1",
-			init: func(t *testing.T) Singleton {
+			init: func(t *testing.T) *singleton {
 				return GetInstance()
 			},
-			inspect: func(r Singleton, , t *testing.T) {
+			inspect: func(r *singleton, t *testing.T) {
 				currentCount := r.AddOne()
-				if counter != 1 {
-					t.Error("After calling for the first time to count, the count must be 1 but it is %d\n", currentCount)
+				if currentCount != 1 {
+					t.Errorf("After calling for the first time to count, the count must be 1 but it is %d\n", currentCount)
 				}
-			}
+			},
 		},
 	}
 
@@ -37,7 +39,6 @@ func Test_GetInstance(t *testing.T) {
 		t.Run(tt.name, func(t *testing.T) {
 			receiver := tt.init(t)
 
-			receiver.GetInstance()
 			if tt.inspect != nil {
 				tt.inspect(receiver, t)
 			}
