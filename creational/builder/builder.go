@@ -7,7 +7,7 @@ type BuildProcess interface {
 	GetVehicle() VehicleProduct
 }
 
-type ManufacturingDirector struct{
+type ManufacturingDirector struct {
 	builder BuildProcess
 }
 
@@ -20,7 +20,7 @@ func (f *ManufacturingDirector) Construct() {
 }
 
 type VehicleProduct struct {
-	Wheels int
-	Seats  int
+	Wheels    int
+	Seats     int
 	Structure string
 }

@@ -6,8 +6,8 @@ import (
 
 func Test_CarBuilderPattern(t *testing.T) {
 	tests := []struct {
-		name  string
-		init func(t *testing.T) VehicleProduct
+		name    string
+		init    func(t *testing.T) VehicleProduct
 		inspect func(car VehicleProduct, t *testing.T)
 	}{
 		{
@@ -16,7 +16,7 @@ func Test_CarBuilderPattern(t *testing.T) {
 				return builderCarInitTests()
 			},
 			inspect: func(car VehicleProduct, t *testing.T) {
-				if car.Wheels != 4 { 
+				if car.Wheels != 4 {
 					t.Errorf("Wheels on a car must be 4 and they were %d\n", car.Wheels)
 				}
 			},
@@ -52,7 +52,6 @@ func Test_CarBuilderPattern(t *testing.T) {
 			if tt.inspect != nil {
 				tt.inspect(receiver, t)
 			}
-
 		})
 	}
 }

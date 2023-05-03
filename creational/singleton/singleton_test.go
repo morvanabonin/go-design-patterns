@@ -6,8 +6,8 @@ import (
 
 func Test_GetInstance(t *testing.T) {
 	tests := []struct {
-		name  string
-		init func(t *testing.T) *singleton
+		name    string
+		init    func(t *testing.T) *singleton
 		inspect func(r *singleton, t *testing.T)
 	}{
 		{
@@ -54,7 +54,6 @@ func Test_GetInstance(t *testing.T) {
 			if tt.inspect != nil {
 				tt.inspect(receiver, t)
 			}
-
 		})
 	}
 }

@@ -5,7 +5,7 @@ type TruckBuilder struct {
 }
 
 func (t *TruckBuilder) SetWheels() BuildProcess {
-	t.v.Wheels = 6*3
+	t.v.Wheels = 6 * 3
 	return t
 }
 
