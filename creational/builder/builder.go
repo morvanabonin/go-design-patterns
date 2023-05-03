@@ -7,14 +7,16 @@ type BuildProcess interface {
 	GetVehicle() VehicleProduct
 }
 
-type ManufacturingDirector struct{}
-
-func (f *ManufacturingDirector) Construct() {
-	//Implementation hoes here
+type ManufacturingDirector struct{
+	builder BuildProcess
 }
 
-func (f *ManufacturingDirector) SetBuilder() {
-	//Implementation goes here
+func (f *ManufacturingDirector) SetBuilder(b BuildProcess) {
+	f.builder = b
+}
+
+func (f *ManufacturingDirector) Construct() {
+	f.builder.SetSeats().SetStructure().SetWheels()
 }
 
 type VehicleProduct struct {
@@ -22,5 +24,3 @@ type VehicleProduct struct {
 	Seats  int
 	Structure string
 }
-
-type CarBuilder struct {}
