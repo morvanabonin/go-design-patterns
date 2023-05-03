@@ -13,7 +13,7 @@ func Test_CarBuilderPattern(t *testing.T) {
 		{
 			name: "car must have 4 wheels",
 			init: func(t *testing.T) VehicleProduct {
-				return builderInit()
+				return builderCarInitTests()
 			},
 			inspect: func(car VehicleProduct, t *testing.T) {
 				if car.Wheels != 4 { 
@@ -24,7 +24,7 @@ func Test_CarBuilderPattern(t *testing.T) {
 		{
 			name: "car structure must be 'Car'",
 			init: func(t *testing.T) VehicleProduct {
-				return builderInit()
+				return builderCarInitTests()
 			},
 			inspect: func(car VehicleProduct, t *testing.T) {
 				if car.Structure != "Car" {
@@ -35,7 +35,7 @@ func Test_CarBuilderPattern(t *testing.T) {
 		{
 			name: "car must have 5 seats",
 			init: func(t *testing.T) VehicleProduct {
-				return builderInit()
+				return builderCarInitTests()
 			},
 			inspect: func(car VehicleProduct, t *testing.T) {
 				if car.Seats != 5 {
@@ -57,7 +57,7 @@ func Test_CarBuilderPattern(t *testing.T) {
 	}
 }
 
-func builderInit() VehicleProduct {
+func builderCarInitTests() VehicleProduct {
 	manufacturingComplex := ManufacturingDirector{}
 	carBuilder := &CarBuilder{}
 	manufacturingComplex.SetBuilder(carBuilder)
