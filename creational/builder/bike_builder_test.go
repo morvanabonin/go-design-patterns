@@ -17,7 +17,7 @@ func Test_BikeBuilderPattern(t *testing.T) {
 			},
 			inspect: func(bike VehicleProduct, t *testing.T) {
 				if bike.Wheels != 2 { 
-					t.Errorf("Wheels on a car must be 4 and they were %d\n", bike.Wheels)
+					t.Errorf("Wheels on a bike must be 2 and they were %d\n", bike.Wheels)
 				}
 			},
 		},
@@ -39,7 +39,7 @@ func Test_BikeBuilderPattern(t *testing.T) {
 			},
 			inspect: func(bike VehicleProduct, t *testing.T) {
 				if bike.Seats != 2 {
-					t.Errorf("Seats on a car must be 5 and they were %d\n", bike.Seats)
+					t.Errorf("Seats on a bike must be 2 and they were %d\n", bike.Seats)
 				}
 			},
 		},
