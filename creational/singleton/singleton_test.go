@@ -22,7 +22,7 @@ func Test_GetInstance(t *testing.T) {
 			},
 		},
 		{
-			name: "First time count must be 1",
+			name: "first time count must be 1",
 			init: func(t *testing.T) *singleton {
 				return GetInstance()
 			},
@@ -30,6 +30,18 @@ func Test_GetInstance(t *testing.T) {
 				currentCount := r.AddOne()
 				if currentCount != 1 {
 					t.Errorf("After calling for the first time to count, the count must be 1 but it is %d\n", currentCount)
+				}
+			},
+		},
+		{
+			name: "same instance in counter",
+			init: func(t *testing.T) *singleton {
+				return GetInstance()
+			},
+			inspect: func(r *singleton, t *testing.T) {
+				counter := GetInstance()
+				if r != counter {
+					t.Errorf("Expected same instance in counter2 but it got a different instance")
 				}
 			},
 		},
