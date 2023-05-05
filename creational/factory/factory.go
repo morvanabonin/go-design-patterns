@@ -10,14 +10,14 @@ type PaymentMethod interface {
 }
 
 const (
-	Cash      = 1
-	DebitCard = 2
+	Cash       = 1
+	DebitCard  = 2
 	CreditCard = 3
 )
 
 type (
-	CashPM      struct{}
-	DebitCardPM struct{}
+	CashPM       struct{}
+	DebitCardPM  struct{}
 	CreditCardPM struct{}
 )
 
