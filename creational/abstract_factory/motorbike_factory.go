@@ -1,8 +1,8 @@
 package abstract_factory
 
 import (
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 type VehicleFactory interface {
@@ -10,12 +10,12 @@ type VehicleFactory interface {
 }
 
 const (
-	CarFactoryType = 1
+	CarFactoryType       = 1
 	MotorbikeFactoryType = 2
 )
 
 func BuildFactory(f int) (VehicleFactory, error) {
-	switch f{
+	switch f {
 	default:
 		return nil, errors.New(fmt.Sprintf("Factory with id %d not recognized\n", f))
 	}

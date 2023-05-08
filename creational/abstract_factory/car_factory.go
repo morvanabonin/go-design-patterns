@@ -1,8 +1,8 @@
 package abstract_factory
 
 import (
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 const (
