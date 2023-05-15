@@ -23,7 +23,22 @@ func Test_CarFactory(t *testing.T) {
 				if !ok {
 					t.Fatal("Struct assertion has failed")
 				}
-				t.Logf("Luxury cars has %d doors.\n", luxuryCar.NumDoors())
+				t.Logf("Luxury cars has %d doors.\n", luxuryCar.NumWheels())
+			},
+		},
+		{
+			name: "Test Family Car Number of Wheels",
+			init: func(t *testing.T) Vehicle {
+				carF, _ := BuildFactory(CarFactoryType)
+				carVehicle, _ := carF.Build(FamilyCarType)
+				return carVehicle
+			},
+			inspect: func(c Vehicle, t *testing.T) {
+				familyCar, ok := c.(Car)
+				if !ok {
+					t.Fatal("Struct assertion has failed")
+				}
+				t.Logf("Sports cars has %d doors.\n", familyCar.NumWheels())
 			},
 		},
 	}
