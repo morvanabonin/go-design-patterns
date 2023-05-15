@@ -5,18 +5,20 @@ import (
 	"fmt"
 )
 
-type VehicleFactory interface {
-	Build(v int) (Vehicle, error)
-}
-
 const (
-	CarFactoryType       = 1
-	MotorbikeFactoryType = 2
+	SportMotorbikeType  = 1
+	CruiseMotorbikeType = 2
 )
 
-func BuildFactory(f int) (VehicleFactory, error) {
-	switch f {
+type MotorbikeFactory struct{}
+
+func (m *MotorbikeFactory) Build(v int) (Vehicle, error) {
+	switch v {
+	case SportMotorbikeType:
+		return new(SportMotorbike), nil
+	case CruiseMotorbikeType:
+		return new(CruiseMotorbike), nil
 	default:
-		return nil, errors.New(fmt.Sprintf("Factory with id %d not recognized\n", f))
+		return nil, errors.New(fmt.Sprintf("Vehicle of type %d not recognized\n", v))
 	}
 }

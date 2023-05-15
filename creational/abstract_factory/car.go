@@ -1,5 +1,5 @@
 package abstract_factory
 
 type Car interface {
-	GetDoors() int
+	NumDoors() int
 }
